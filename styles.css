@@ -1,8 +1,7 @@
 :root {
-  --paper: #f8f8f3;
-  --ink: #1d1d1d;
-  --frame: #ffffff;
-  --soft-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
+  --ink: #0a0a0a;
+  --paper: #f7f7f7;
+  --line: rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -16,74 +15,46 @@ html {
 body {
   min-height: 100vh;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 8% 12%, rgba(241, 236, 224, 0.5), transparent 30%),
-    radial-gradient(circle at 88% 18%, rgba(232, 233, 239, 0.42), transparent 28%),
-    linear-gradient(180deg, #fbfbf7 0%, var(--paper) 42%, #f7f7f1 100%);
+  background: radial-gradient(circle at 20% 0%, #1c1c1c 0%, #0b0b0b 40%, #060606 100%);
 }
 
-.site-noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.15;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.32),
-    rgba(255, 255, 255, 0.32) 1px,
-    transparent 1px,
-    transparent 3px
-  );
+.stage-shell {
+  min-height: 100vh;
+  padding: clamp(8px, 1.4vw, 18px);
 }
 
-main,
-footer,
-header {
-  position: relative;
-  z-index: 2;
+.paper-stage {
+  margin-inline: auto;
+  max-width: 1640px;
+  background: var(--paper);
+  min-height: calc(100vh - 20px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
 }
 
-.museum-frame {
-  background: var(--frame);
-  padding: clamp(12px, 1.7vw, 20px);
-  box-shadow: var(--soft-shadow);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+.exhibit-frame {
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
-.museum-frame:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
-}
-
-.media-piece {
+.band-image {
   width: 100%;
-  height: min(78vh, 680px);
+  height: clamp(130px, 18vw, 310px);
   object-fit: cover;
-  background: #f0f0ec;
+  display: block;
 }
 
-.meta-row {
-  margin-top: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.8rem;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: rgba(0, 0, 0, 0.58);
-}
-
-.intro-item {
-  opacity: 0;
-  animation: drift-in 0.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+.gallery-media {
+  width: 100%;
+  object-fit: cover;
+  background: #efefef;
+  display: block;
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
-    transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .reveal.in-view {
@@ -91,25 +62,14 @@ header {
   transform: translateY(0);
 }
 
-@keyframes drift-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 900px) {
-  .media-piece {
-    height: min(65vh, 520px);
+  .stage-shell {
+    padding: 0;
   }
 
-  .museum-frame:hover {
-    transform: none;
-    box-shadow: var(--soft-shadow);
+  .paper-stage {
+    min-height: 100vh;
+    border: none;
   }
 }
 
@@ -118,12 +78,9 @@ header {
     scroll-behavior: auto;
   }
 
-  .intro-item,
-  .reveal,
-  .museum-frame {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
+  .reveal {
     opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

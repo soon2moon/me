@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>White Room Portfolio</title>
+    <title>Mey Amisa Portfolio</title>
     <meta
       name="description"
-      content="A minimal, art-forward portfolio for photography and video work."
+      content="Minimal black and white portfolio for photography and moving image work."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -22,218 +22,156 @@
         theme: {
           extend: {
             colors: {
-              paper: "#f8f8f3",
-              ink: "#1d1d1d",
-              frame: "#ffffff",
+              ink: "#0a0a0a",
+              paper: "#f7f7f7",
             },
             fontFamily: {
               sans: ["Manrope", "sans-serif"],
-              display: ["Cormorant Garamond", "serif"],
             },
             maxWidth: {
-              canvas: "1480px",
+              stage: "1640px",
+              canvas: "1500px",
             },
           },
         },
       };
     </script>
+
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="bg-paper text-ink font-sans antialiased">
-    <div class="site-noise" aria-hidden="true"></div>
-
-    <header
-      class="fixed left-0 top-0 z-50 w-full border-b border-black/10 bg-white/70 backdrop-blur-xl"
-    >
-      <div
-        class="mx-auto flex max-w-canvas items-center justify-between px-4 py-3 text-[11px] uppercase tracking-[0.22em] md:px-8"
-      >
-        <a href="#work" class="transition hover:opacity-50">Mey Amisa</a>
-        <nav class="hidden gap-8 md:flex">
-          <a href="#work" class="transition hover:opacity-50">Work</a>
-          <a href="#films" class="transition hover:opacity-50">Films</a>
-          <a href="#about" class="transition hover:opacity-50">About</a>
-          <a href="#contact" class="transition hover:opacity-50">Contact</a>
-        </nav>
-        <span id="live-time" class="tabular-nums">--:-- --</span>
-      </div>
-    </header>
-
-    <main class="relative">
-      <section id="work" class="px-5 pt-40 md:px-8 md:pt-48">
-        <div class="mx-auto max-w-canvas">
-          <p
-            class="intro-item text-[11px] uppercase tracking-[0.25em] text-black/55"
-            style="animation-delay: 0.05s"
+  <body class="bg-ink text-ink font-sans antialiased">
+    <div class="stage-shell">
+      <div class="paper-stage">
+        <header class="border-b border-black/10">
+          <div
+            class="mx-auto flex max-w-canvas items-center justify-between gap-4 px-4 py-4 text-[12px] font-medium md:px-8"
           >
-            Portfolio 2026
-          </p>
-          <h1
-            class="intro-item mt-5 max-w-5xl font-display text-5xl leading-[0.95] md:text-7xl lg:text-8xl"
-            style="animation-delay: 0.18s"
-          >
-            A minimal white room for photo and moving image.
-          </h1>
-          <p
-            class="intro-item mt-8 max-w-2xl text-sm leading-relaxed text-black/60 md:text-base"
-            style="animation-delay: 0.31s"
-          >
-            The layout keeps generous negative space so each frame sits with the
-            same calm attention as an artwork in a gallery.
-          </p>
-        </div>
-      </section>
+            <a href="#work" class="tracking-[0.08em] transition hover:opacity-55">MEY AMISA</a>
 
-      <div class="h-24 md:h-36"></div>
+            <nav class="hidden items-center gap-5 text-black/75 md:flex">
+              <a href="#work" class="transition hover:opacity-55">Work</a>
+              <a href="#process" class="transition hover:opacity-55">Process</a>
+              <a href="#studio" class="transition hover:opacity-55">Studio</a>
+            </nav>
 
-      <section class="px-5 md:px-8">
-        <div class="mx-auto grid max-w-canvas grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
-          <article class="museum-frame reveal lg:col-span-8">
-            <img
-              class="media-piece"
-              src="https://images.unsplash.com/photo-1502325966718-85a90488dc29?auto=format&fit=crop&w=1900&q=80"
-              alt="Editorial portrait in a bright interior."
-              loading="lazy"
-            />
-            <div class="meta-row">
-              <span>Editorial Portrait</span>
-              <span>Photo</span>
+            <div class="flex items-center gap-5 text-black/75">
+              <span id="live-time" class="tabular-nums">--:-- --</span>
+              <span class="hidden sm:inline">South Yarra, AUS</span>
+              <a href="#contact" class="text-black transition hover:opacity-55">Contact</a>
             </div>
-          </article>
-
-          <article class="museum-frame reveal lg:col-span-4">
-            <video
-              class="media-piece"
-              src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"
-              autoplay
-              muted
-              loop
-              playsinline
-            ></video>
-            <div class="meta-row">
-              <span>Mountain Study</span>
-              <span>Video</span>
-            </div>
-          </article>
-
-          <article class="museum-frame reveal lg:col-span-5">
-            <img
-              class="media-piece"
-              src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1600&q=80"
-              alt="Model in monochrome clothing against a neutral backdrop."
-              loading="lazy"
-            />
-            <div class="meta-row">
-              <span>Studio Motion I</span>
-              <span>Photo</span>
-            </div>
-          </article>
-
-          <article class="museum-frame reveal lg:col-span-7">
-            <video
-              class="media-piece"
-              src="https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4"
-              autoplay
-              muted
-              loop
-              playsinline
-            ></video>
-            <div class="meta-row">
-              <span>Process Loop</span>
-              <span>Video</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <div class="h-24 md:h-40"></div>
-
-      <section id="films" class="px-5 md:px-8">
-        <div class="mx-auto max-w-canvas">
-          <div class="mb-9 flex items-end justify-between">
-            <h2 class="font-display text-4xl md:text-6xl">Selected Films</h2>
-            <p class="hidden text-xs uppercase tracking-[0.22em] text-black/45 md:block">
-              Quiet motion studies
-            </p>
           </div>
+        </header>
 
-          <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <article class="museum-frame reveal">
-              <video
-                class="media-piece h-[52vh] min-h-[360px]"
-                src="https://storage.googleapis.com/coverr-main/mp4/Night-Traffic.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                controls
-              ></video>
-              <div class="meta-row">
-                <span>Nocturne</span>
-                <span>03:21</span>
-              </div>
-            </article>
+        <main>
+          <section id="work" class="px-4 pb-28 pt-16 md:px-8 md:pb-36 md:pt-24">
+            <div class="mx-auto max-w-canvas">
+              <div class="grid items-start gap-10 lg:grid-cols-12">
+                <div class="reveal lg:col-span-7">
+                  <h1 class="max-w-5xl text-4xl font-semibold leading-[0.95] md:text-7xl">
+                    Minimal composition for photo and moving image.
+                  </h1>
+                  <p class="mt-8 max-w-xl text-base leading-relaxed text-black/70">
+                    Built as a quiet white room where each frame carries weight,
+                    with enough breathing space to feel like a gallery wall.
+                  </p>
+                </div>
 
-            <article class="museum-frame reveal">
-              <video
-                class="media-piece h-[52vh] min-h-[360px]"
-                src="https://storage.googleapis.com/coverr-main/mp4/White-Clouds.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                controls
-              ></video>
-              <div class="meta-row">
-                <span>Field Notes</span>
-                <span>02:48</span>
+                <div class="reveal lg:col-span-5 lg:pt-7">
+                  <p class="max-w-md text-[18px] font-medium leading-[1.35]">
+                    The work sits between stillness and motion. Light, texture,
+                    and pacing are treated as the main subjects.
+                  </p>
+                </div>
               </div>
-            </article>
+            </div>
+          </section>
+
+          <section id="process" class="px-4 pb-24 md:px-8 md:pb-32">
+            <div class="mx-auto max-w-canvas space-y-4">
+              <article class="reveal exhibit-frame">
+                <img
+                  class="band-image"
+                  src="./assets/images/20260219_board_v2.jpeg"
+                  alt="Mood board strip showing process references"
+                  loading="lazy"
+                />
+              </article>
+
+              <div class="grid gap-4 md:grid-cols-12">
+                <article class="reveal exhibit-frame md:col-span-4">
+                  <img
+                    class="gallery-media h-[520px] md:h-[620px]"
+                    src="./assets/images/20260219_artwork.jpeg"
+                    alt="Portfolio artwork still"
+                    loading="lazy"
+                  />
+                </article>
+
+                <article class="reveal exhibit-frame md:col-span-4">
+                  <video
+                    class="gallery-media h-[520px] md:h-[620px]"
+                    src="./assets/videos/20260219_artwork.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                  ></video>
+                </article>
+
+                <article class="reveal exhibit-frame md:col-span-4">
+                  <img
+                    class="gallery-media h-[520px] md:h-[620px]"
+                    src="./assets/images/20260219_board_v1.jpeg"
+                    alt="Process board detail"
+                    loading="lazy"
+                  />
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="studio" class="px-4 pb-28 md:px-8 md:pb-36">
+            <div class="mx-auto max-w-canvas">
+              <article class="reveal border-y border-black/10 py-14 md:py-20">
+                <div class="grid gap-10 md:grid-cols-12 md:items-end">
+                  <div class="md:col-span-8">
+                    <p class="max-w-4xl text-2xl font-medium leading-[1.2] md:text-4xl">
+                      Less decoration, more presence. The page acts like an
+                      exhibition room so every image and video can stand on its own.
+                    </p>
+                  </div>
+
+                  <div class="md:col-span-4 md:text-right">
+                    <p class="text-sm uppercase tracking-[0.2em] text-black/60">
+                      Photo / Video / Direction
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer id="contact" class="px-4 pb-7 md:px-8 md:pb-10">
+          <div
+            class="mx-auto flex max-w-canvas flex-col gap-4 border-t border-black/10 pt-5 text-[11px] uppercase tracking-[0.2em] text-black/70 md:flex-row md:items-end md:justify-between"
+          >
+            <div class="space-y-1">
+              <a class="block transition hover:opacity-55" href="#">Instagram</a>
+              <a class="block transition hover:opacity-55" href="#">Behance</a>
+            </div>
+
+            <div class="space-y-1 text-left md:text-right">
+              <a class="block transition hover:opacity-55" href="mailto:hello@meyamisa.com"
+                >hello@meyamisa.com</a
+              >
+              <p>Melbourne / New York</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <div class="h-24 md:h-40"></div>
-
-      <section id="about" class="px-5 md:px-8">
-        <div class="mx-auto max-w-canvas">
-          <article
-            class="reveal grid gap-6 border-y border-black/10 py-14 md:grid-cols-[2fr_1fr] md:gap-10"
-          >
-            <p class="max-w-3xl text-base leading-relaxed text-black/75 md:text-lg">
-              I work between stillness and movement, building visual pieces that
-              sit in space with precision. My approach is simple: less styling,
-              more presence. Every frame is given air around it so light, color,
-              and gesture can speak without noise.
-            </p>
-            <ul class="space-y-2 text-sm text-black/65">
-              <li>Direction</li>
-              <li>Photography</li>
-              <li>Video</li>
-              <li>Creative Production</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contact" class="px-5 pb-10 pt-20 md:px-8">
-      <div
-        class="mx-auto flex max-w-canvas flex-col gap-6 border-t border-black/10 pt-6 text-xs uppercase tracking-[0.2em] text-black/65 md:flex-row md:items-end md:justify-between"
-      >
-        <div class="space-y-1">
-          <a class="block transition hover:opacity-45" href="#">Instagram</a>
-          <a class="block transition hover:opacity-45" href="#">Vimeo</a>
-          <a class="block transition hover:opacity-45" href="#">Behance</a>
-        </div>
-        <div class="space-y-1 text-left md:text-right">
-          <a class="block transition hover:opacity-45" href="mailto:hello@portfolio.com"
-            >hello@portfolio.com</a
-          >
-          <p>Based in New York</p>
-        </div>
+        </footer>
       </div>
-    </footer>
+    </div>
 
     <script src="./script.js"></script>
   </body>

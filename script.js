@@ -6,10 +6,11 @@
       return;
     }
 
-    const fmt = new Intl.DateTimeFormat("en-US", {
-      hour: "numeric",
+    const fmt = new Intl.DateTimeFormat("en-AU", {
+      hour: "2-digit",
       minute: "2-digit",
       hour12: true,
+      timeZone: "Australia/Melbourne",
     });
 
     timeNode.textContent = fmt.format(new Date());
@@ -35,12 +36,12 @@
     },
     {
       threshold: 0.2,
-      rootMargin: "0px 0px -6% 0px",
+      rootMargin: "0px 0px -8% 0px",
     }
   );
 
   targets.forEach((target, idx) => {
-    target.style.transitionDelay = `${Math.min(idx * 55, 280)}ms`;
+    target.style.transitionDelay = `${Math.min(idx * 65, 260)}ms`;
     observer.observe(target);
   });
 })();
