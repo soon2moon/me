@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -40,17 +40,58 @@
         </header>
 
         <main>
-          <section class="hero reveal">
-            <p class="eyebrow">Portfolio Atlas</p>
-            <h1>All newly added images are grouped into clear, linked series pages.</h1>
-            <p>
-              The archive is split by project type so each body of work can be browsed on its
-              own. Every image in <code>assets/images</code> is now represented in one of the
-              subpages below.
-            </p>
+          <section class="landing-canvas reveal" aria-label="Landing canvas">
+            <img
+              class="floating-shot shot-a"
+              src="assets/images/dance_12.jpg"
+              alt="Dance detail from archive"
+              loading="lazy"
+            />
+            <img
+              class="floating-shot shot-b"
+              src="assets/images/expo_06.jpg"
+              alt="Expo detail from archive"
+              loading="lazy"
+            />
+            <img
+              class="floating-shot shot-c"
+              src="assets/images/tanztruppe_05.jpg"
+              alt="Tanztruppe detail from archive"
+              loading="lazy"
+            />
+            <img
+              class="floating-shot shot-d"
+              src="assets/images/experimental_typo_01.jpg"
+              alt="Experimental typography detail"
+              loading="lazy"
+            />
+            <img
+              class="floating-shot shot-e"
+              src="assets/images/dance_03.jpg"
+              alt="Dance architecture detail"
+              loading="lazy"
+            />
+            <img
+              class="floating-shot shot-f"
+              src="assets/images/the_art_of_writing_02.jpg"
+              alt="Writing detail from archive"
+              loading="lazy"
+            />
+            <div class="canvas-title">
+              <p class="eyebrow">Mey Amisa</p>
+              <h1>Work Archive (48)</h1>
+              <p>
+                White-room presentation of all grouped series with direct access to every image in
+                <code>assets/images</code>.
+              </p>
+              <div class="canvas-actions">
+                <a class="mono-button" href="process.html">Open Process</a>
+                <a class="mono-link" href="#series-index">All Series</a>
+              </div>
+            </div>
           </section>
 
-          <section class="series-grid" aria-label="Series index">
+          <section id="series-index" class="series-grid" aria-label="Series index">
             <article class="series-card reveal">
               <a class="series-link" href="process.html">
                 <img
@@ -166,10 +207,10 @@
         </main>
 
         <footer class="site-footer">
-          <p>hello@meyamisa.com</p>
+          <a href="mailto:meyamisa02@gmail.com">meyamisa02@gmail.com</a>
           <div class="footer-links">
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance</a>
+            <a href="https://www.instagram.com/mey.amisa/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.behance.net/meyamisa1#" target="_blank" rel="noreferrer">Behance</a>
           </div>
         </footer>
       </div>
