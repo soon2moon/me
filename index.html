@@ -3,176 +3,178 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mey Amisa Portfolio</title>
+    <title>Mey Amisa Archive</title>
     <meta
       name="description"
-      content="Minimal black and white portfolio for photography and moving image work."
+      content="Portfolio index with grouped image series and dedicated subpages."
     />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: "#0a0a0a",
-              paper: "#f7f7f7",
-            },
-            fontFamily: {
-              sans: ["Manrope", "sans-serif"],
-            },
-            maxWidth: {
-              stage: "1640px",
-              canvas: "1500px",
-            },
-          },
-        },
-      };
-    </script>
-
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="bg-ink text-ink font-sans antialiased">
-    <div class="stage-shell">
-      <div class="paper-stage">
-        <header class="border-b border-black/10">
-          <div
-            class="mx-auto flex max-w-canvas items-center justify-between gap-4 px-4 py-4 text-[12px] font-medium md:px-8"
-          >
-            <a href="#work" class="tracking-[0.08em] transition hover:opacity-55">MEY AMISA</a>
-
-            <nav class="hidden items-center gap-5 text-black/75 md:flex">
-              <a href="#work" class="transition hover:opacity-55">Work</a>
-              <a href="#process" class="transition hover:opacity-55">Process</a>
-              <a href="#studio" class="transition hover:opacity-55">Studio</a>
-            </nav>
-
-            <div class="flex items-center gap-5 text-black/75">
-              <span id="live-time" class="tabular-nums">--:-- --</span>
-              <span class="hidden sm:inline">South Yarra, AUS</span>
-              <a href="#contact" class="text-black transition hover:opacity-55">Contact</a>
+  <body>
+    <div class="site-shell">
+      <div class="site-frame">
+        <header class="site-header">
+          <div class="brand-row">
+            <a class="brand" href="index.html">Mey Amisa Archive</a>
+            <div class="meta">
+              <span data-local-time>--:-- --</span>
+              <span>South Yarra, AUS</span>
             </div>
           </div>
+          <nav class="site-nav" aria-label="Primary">
+            <a href="index.html" data-page-link>Overview</a>
+            <a href="process.html" data-page-link>Process</a>
+            <a href="dance.html" data-page-link>Dance</a>
+            <a href="expo.html" data-page-link>Expo</a>
+            <a href="tanztruppe.html" data-page-link>Tanztruppe</a>
+            <a href="experimental-typo.html" data-page-link>Experimental Typo</a>
+            <a href="writing.html" data-page-link>Art of Writing</a>
+            <a href="solo.html" data-page-link>Solo Portraits</a>
+          </nav>
         </header>
 
         <main>
-          <section id="work" class="px-4 pb-28 pt-16 md:px-8 md:pb-36 md:pt-24">
-            <div class="mx-auto max-w-canvas">
-              <div class="grid items-start gap-10 lg:grid-cols-12">
-                <div class="reveal lg:col-span-7">
-                  <h1 class="max-w-5xl text-4xl font-semibold leading-[0.95] md:text-7xl">
-                    Minimal composition for photo and moving image.
-                  </h1>
-                  <p class="mt-8 max-w-xl text-base leading-relaxed text-black/70">
-                    Built as a quiet white room where each frame carries weight,
-                    with enough breathing space to feel like a gallery wall.
-                  </p>
-                </div>
-
-                <div class="reveal lg:col-span-5 lg:pt-7">
-                  <p class="max-w-md text-[18px] font-medium leading-[1.35]">
-                    The work sits between stillness and motion. Light, texture,
-                    and pacing are treated as the main subjects.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <section class="hero reveal">
+            <p class="eyebrow">Portfolio Atlas</p>
+            <h1>All newly added images are grouped into clear, linked series pages.</h1>
+            <p>
+              The archive is split by project type so each body of work can be browsed on its
+              own. Every image in <code>assets/images</code> is now represented in one of the
+              subpages below.
+            </p>
           </section>
 
-          <section id="process" class="px-4 pb-24 md:px-8 md:pb-32">
-            <div class="mx-auto max-w-canvas space-y-4">
-              <article class="reveal exhibit-frame">
+          <section class="series-grid" aria-label="Series index">
+            <article class="series-card reveal">
+              <a class="series-link" href="process.html">
                 <img
-                  class="band-image"
-                  src="./assets/images/20260219_board_v2.jpeg"
-                  alt="Mood board strip showing process references"
+                  class="series-cover"
+                  src="assets/images/20260219_board_v2.jpeg"
+                  alt="Process board collage cover"
                   loading="lazy"
                 />
-              </article>
-
-              <div class="grid gap-4 md:grid-cols-12">
-                <article class="reveal exhibit-frame md:col-span-4">
-                  <img
-                    class="gallery-media h-[520px] md:h-[620px]"
-                    src="./assets/images/20260219_artwork.jpeg"
-                    alt="Portfolio artwork still"
-                    loading="lazy"
-                  />
-                </article>
-
-                <article class="reveal exhibit-frame md:col-span-4">
-                  <video
-                    class="gallery-media h-[520px] md:h-[620px]"
-                    src="./assets/videos/20260219_artwork.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    controls
-                  ></video>
-                </article>
-
-                <article class="reveal exhibit-frame md:col-span-4">
-                  <img
-                    class="gallery-media h-[520px] md:h-[620px]"
-                    src="./assets/images/20260219_board_v1.jpeg"
-                    alt="Process board detail"
-                    loading="lazy"
-                  />
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section id="studio" class="px-4 pb-28 md:px-8 md:pb-36">
-            <div class="mx-auto max-w-canvas">
-              <article class="reveal border-y border-black/10 py-14 md:py-20">
-                <div class="grid gap-10 md:grid-cols-12 md:items-end">
-                  <div class="md:col-span-8">
-                    <p class="max-w-4xl text-2xl font-medium leading-[1.2] md:text-4xl">
-                      Less decoration, more presence. The page acts like an
-                      exhibition room so every image and video can stand on its own.
-                    </p>
-                  </div>
-
-                  <div class="md:col-span-4 md:text-right">
-                    <p class="text-sm uppercase tracking-[0.2em] text-black/60">
-                      Photo / Video / Direction
-                    </p>
-                  </div>
+                <div class="series-body">
+                  <h2>Process</h2>
+                  <p>Boards, artwork stills, and the motion study clip.</p>
+                  <span class="series-meta">3 images + 1 video</span>
                 </div>
-              </article>
-            </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="dance.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/dance_08.jpg"
+                  alt="Dance series cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>Dance</h2>
+                  <p>Movement frames and stage moments across the dance set.</p>
+                  <span class="series-meta">17 images</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="expo.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/expo_04.jpg"
+                  alt="Expo series cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>Expo</h2>
+                  <p>Exhibition documentation and installation perspectives.</p>
+                  <span class="series-meta">9 images</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="tanztruppe.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/tanztruppe_06.jpg"
+                  alt="Tanztruppe group cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>Tanztruppe</h2>
+                  <p>Group choreography and rehearsal observations.</p>
+                  <span class="series-meta">9 images</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="experimental-typo.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/experimental_typo_03.jpg"
+                  alt="Experimental typography cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>Experimental Typography</h2>
+                  <p>Type-led image experiments and layout studies.</p>
+                  <span class="series-meta">5 images</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="writing.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/the_art_of_writing_01.jpg"
+                  alt="The art of writing cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>The Art of Writing</h2>
+                  <p>Editorial-style image set focused on writing artifacts.</p>
+                  <span class="series-meta">3 images</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="series-card reveal">
+              <a class="series-link" href="solo.html">
+                <img
+                  class="series-cover"
+                  src="assets/images/mey_amisa_solo.jpg"
+                  alt="Solo portrait cover"
+                  loading="lazy"
+                />
+                <div class="series-body">
+                  <h2>Solo Portraits</h2>
+                  <p>Focused portrait stills from the Mey Amisa solo sessions.</p>
+                  <span class="series-meta">2 images</span>
+                </div>
+              </a>
+            </article>
           </section>
         </main>
 
-        <footer id="contact" class="px-4 pb-7 md:px-8 md:pb-10">
-          <div
-            class="mx-auto flex max-w-canvas flex-col gap-4 border-t border-black/10 pt-5 text-[11px] uppercase tracking-[0.2em] text-black/70 md:flex-row md:items-end md:justify-between"
-          >
-            <div class="space-y-1">
-              <a class="block transition hover:opacity-55" href="#">Instagram</a>
-              <a class="block transition hover:opacity-55" href="#">Behance</a>
-            </div>
-
-            <div class="space-y-1 text-left md:text-right">
-              <a class="block transition hover:opacity-55" href="mailto:hello@meyamisa.com"
-                >hello@meyamisa.com</a
-              >
-              <p>Melbourne / New York</p>
-            </div>
+        <footer class="site-footer">
+          <p>hello@meyamisa.com</p>
+          <div class="footer-links">
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance</a>
           </div>
         </footer>
       </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
