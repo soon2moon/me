@@ -1,4 +1,5 @@
 (function () {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const timeNodes = document.querySelectorAll("[data-local-time]");
 
   function updateTime() {
@@ -21,6 +22,30 @@
 
   updateTime();
   setInterval(updateTime, 30000);
+
+  const pageKey = currentPage.replace(/\.html$/, "");
+  const seriesCodes = {
+    process: "BAR",
+    dance: "BAL",
+    expo: "EXP",
+    tanztruppe: "PRF",
+    "experimental-typo": "XTP",
+  };
+
+  if (seriesCodes[pageKey]) {
+    const seriesCode = seriesCodes[pageKey];
+    document.querySelectorAll(".gallery-item figure").forEach((figure, index) => {
+      const media = figure.querySelector("img, video");
+      const caption = figure.querySelector("figcaption");
+      if (!media || !caption) {
+        return;
+      }
+
+      const mediaType = media.tagName.toLowerCase() === "video" ? "VID" : "IMG";
+      const accession = String(index + 1).padStart(3, "0");
+      caption.textContent = `ACC. MA-${seriesCode}-${mediaType}-${accession}`;
+    });
+  }
 
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length) {
@@ -45,11 +70,20 @@
     });
   }
 
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("[data-page-link]").forEach((link) => {
     const href = link.getAttribute("href");
     if (href === currentPage || (currentPage === "" && href === "index.html")) {
       link.classList.add("is-active");
     }
   });
+
+  const backLink = document.querySelector("[data-back-link]");
+  if (backLink) {
+    backLink.addEventListener("click", (event) => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  }
 })();
