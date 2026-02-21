@@ -77,6 +77,35 @@
     }
   });
 
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const siteHeader = document.querySelector(".site-header");
+  const siteNav = document.querySelector("#site-nav");
+  if (navToggle && siteHeader && siteNav) {
+    const closeNav = () => {
+      siteHeader.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteHeader.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          closeNav();
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (!window.matchMedia("(max-width: 760px)").matches) {
+        closeNav();
+      }
+    });
+  }
+
   const backLink = document.querySelector("[data-back-link]");
   if (backLink) {
     backLink.addEventListener("click", (event) => {
