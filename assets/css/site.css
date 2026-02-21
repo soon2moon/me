@@ -167,6 +167,10 @@ a {
   border-bottom: 1.5px solid var(--black);
 }
 
+.mobile-only-nav-link {
+  display: none;
+}
+
 main {
   flex: 1 0 auto;
   padding: clamp(18px, 2.5vw, 36px);
@@ -374,10 +378,36 @@ main {
   max-width: 62ch;
 }
 
+.legal-content {
+  max-width: 84ch;
+}
+
+.legal-box {
+  border: 1px solid var(--line);
+  padding: clamp(14px, 2vw, 20px);
+}
+
+.legal-box h2 {
+  margin: 1.35rem 0 0.52rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.08rem, 1.8vw, 1.26rem);
+  letter-spacing: -0.01em;
+}
+
+.legal-box h2:first-child {
+  margin-top: 0;
+}
+
+.legal-box p {
+  margin: 0 0 0.78rem;
+  color: var(--muted);
+  line-height: 1.56;
+}
+
 .floating-back {
   position: fixed;
   right: clamp(14px, 2.4vw, 34px);
-  bottom: clamp(14px, 2.4vw, 28px);
+  bottom: calc(88px + env(safe-area-inset-bottom));
   z-index: 75;
   display: inline-flex;
   align-items: center;
@@ -478,6 +508,13 @@ figcaption {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-links .legal-link:nth-last-child(2) {
+  margin-left: auto;
 }
 
 .footer-links a:hover,
@@ -586,6 +623,27 @@ figcaption {
     font-size: 0.81rem;
   }
 
+  .mobile-only-nav-link {
+    display: inline;
+  }
+
+  .site-nav .mobile-legal-first {
+    border-top: 1px solid var(--line);
+    margin-top: 6px;
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  .site-nav .mobile-legal-first.is-active::after {
+    content: none;
+  }
+
+  .site-nav .mobile-legal-first.is-active {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
   .nav-toggle {
     display: inline-flex;
     align-items: center;
@@ -644,14 +702,34 @@ figcaption {
 
   .floating-back {
     right: 12px;
-    bottom: 12px;
+    bottom: calc(64px + env(safe-area-inset-bottom));
     min-width: 108px;
     padding: 10px 14px;
   }
 
   .site-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .site-footer > a,
+  .footer-links a {
+    white-space: nowrap;
+  }
+
+  .footer-links {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .site-footer .legal-link {
+    display: none;
   }
 }
 

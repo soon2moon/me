@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
   </head>
   <body>
     <div class="site-shell">
@@ -26,12 +26,14 @@
           </div>
           <nav class="site-nav" aria-label="Primary" id="site-nav">
             <a href="index.html" data-page-link>Work Archive</a>
-            <a href="process.html" data-page-link>Body Archive</a>
-            <a href="dance.html" data-page-link>Body Alphabet</a>
-            <a href="expo.html" data-page-link>Expo</a>
-            <a href="tanztruppe.html" data-page-link>Performance</a>
-            <a href="experimental-typo.html" data-page-link>Type Studies</a>
-            <a href="contacts.html" data-page-link>Contacts</a>
+            <a href="pages/body-archive.html" data-page-link>Body Archive</a>
+            <a href="pages/body-alphabet.html" data-page-link>Body Alphabet</a>
+            <a href="pages/exhibition.html" data-page-link>Expo</a>
+            <a href="pages/performance.html" data-page-link>Performance</a>
+            <a href="pages/type-studies.html" data-page-link>Type Studies</a>
+            <a href="pages/contact.html" data-page-link>Contacts</a>
+            <a class="mobile-only-nav-link mobile-legal-first" href="pages/impressum.html" data-page-link>Impressum</a>
+            <a class="mobile-only-nav-link" href="pages/datenschutz.html" data-page-link>Datenschutz</a>
           </nav>
         </header>
 
@@ -45,44 +47,44 @@
                 process artifact.
               </p>
               <div class="canvas-actions">
-                <a class="mono-button" href="process.html">Open Body Archive</a>
+                <a class="mono-button" href="pages/body-archive.html">Open Body Archive</a>
                 <a class="mono-link" href="#series-index">All Series</a>
               </div>
             </div>
             <div class="canvas-artworks">
               <img
                 class="floating-shot shot-a"
-                src="assets/images/dance_12.jpg"
+                src="assets/images/ACC._MA-BAL-IMG-013.jpg"
                 alt="Dance detail from archive"
                 loading="lazy"
               />
               <img
                 class="floating-shot shot-b"
-                src="assets/images/expo_06.jpg"
+                src="assets/images/ACC._MA-EXP-IMG-007.jpg"
                 alt="Expo detail from archive"
                 loading="lazy"
               />
               <img
                 class="floating-shot shot-c"
-                src="assets/images/tanztruppe_05.jpg"
+                src="assets/images/ACC._MA-PRF-IMG-003.jpg"
                 alt="Tanztruppe detail from archive"
                 loading="lazy"
               />
               <img
                 class="floating-shot shot-d"
-                src="assets/images/experimental_typo_01.jpg"
+                src="assets/images/ACC._MA-XTP-IMG-002.jpg"
                 alt="Experimental typography detail"
                 loading="lazy"
               />
               <img
                 class="floating-shot shot-e"
-                src="assets/images/dance_03.jpg"
+                src="assets/images/ACC._MA-BAL-IMG-004.jpg"
                 alt="Dance architecture detail"
                 loading="lazy"
               />
               <img
                 class="floating-shot shot-f"
-                src="assets/images/the_art_of_writing_02.jpg"
+                src="assets/images/ACC._MA-XTP-IMG-004.jpg"
                 alt="Type studies detail from archive"
                 loading="lazy"
               />
@@ -91,10 +93,10 @@
 
           <section id="series-index" class="series-grid" aria-label="Series index">
             <article class="series-card reveal">
-              <a class="series-link" href="process.html">
+              <a class="series-link" href="pages/body-archive.html">
                 <img
                   class="series-cover"
-                  src="assets/images/20260219_artwork.jpeg"
+                  src="assets/images/ACC._MA-BAR-IMG-002.jpeg"
                   alt="Body Archive cover accession ACC. MA-BAR-IMG-002"
                   loading="lazy"
                 />
@@ -106,10 +108,10 @@
             </article>
 
             <article class="series-card reveal">
-              <a class="series-link" href="dance.html">
+              <a class="series-link" href="pages/body-alphabet.html">
                 <img
                   class="series-cover"
-                  src="assets/images/dance_08.jpg"
+                  src="assets/images/ACC._MA-BAL-IMG-009.jpg"
                   alt="Dance series cover"
                   loading="lazy"
                 />
@@ -121,10 +123,10 @@
             </article>
 
             <article class="series-card reveal">
-              <a class="series-link" href="expo.html">
+              <a class="series-link" href="pages/exhibition.html">
                 <img
                   class="series-cover"
-                  src="assets/images/experimental_typo_03.jpg"
+                  src="assets/images/ACC._MA-EXP-IMG-012.jpg"
                   alt="Expo cover accession ACC. MA-XTP-IMG-004"
                   loading="lazy"
                 />
@@ -136,10 +138,10 @@
             </article>
 
             <article class="series-card reveal">
-              <a class="series-link" href="tanztruppe.html">
+              <a class="series-link" href="pages/performance.html">
                 <img
                   class="series-cover"
-                  src="assets/images/tanztruppe_08.jpg"
+                  src="assets/images/ACC._MA-PRF-IMG-005.jpg"
                   alt="Performance cover accession ACC. MA-PRF-IMG-005"
                   loading="lazy"
                 />
@@ -151,10 +153,10 @@
             </article>
 
             <article class="series-card reveal">
-              <a class="series-link" href="experimental-typo.html">
+              <a class="series-link" href="pages/type-studies.html">
                 <img
                   class="series-cover"
-                  src="assets/images/experimental_typo_00.jpg"
+                  src="assets/images/ACC._MA-XTP-IMG-001.jpg"
                   alt="Type Studies cover accession ACC. MA-XTP-IMG-001"
                   loading="lazy"
                 />
@@ -172,11 +174,13 @@
           <div class="footer-links">
             <a href="https://www.instagram.com/mey.amisa/" target="_blank" rel="noreferrer">Instagram</a>
             <a href="https://www.behance.net/meyamisa1#" target="_blank" rel="noreferrer">Behance</a>
+            <a class="legal-link" href="pages/impressum.html">Impressum</a>
+            <a class="legal-link" href="pages/datenschutz.html">Datenschutz</a>
           </div>
         </footer>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/js/site.js"></script>
   </body>
 </html>

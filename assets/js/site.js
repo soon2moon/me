@@ -25,11 +25,11 @@
 
   const pageKey = currentPage.replace(/\.html$/, "");
   const seriesCodes = {
-    process: "BAR",
-    dance: "BAL",
-    expo: "EXP",
-    tanztruppe: "PRF",
-    "experimental-typo": "XTP",
+    "body-archive": "BAR",
+    "body-alphabet": "BAL",
+    exhibition: "EXP",
+    performance: "PRF",
+    "type-studies": "XTP",
   };
 
   if (seriesCodes[pageKey]) {
