@@ -314,13 +314,15 @@ main {
 }
 
 .series-grid {
-  display: grid;
-  gap: clamp(12px, 1.6vw, 18px);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-width: clamp(240px, 26vw, 380px);
+  column-gap: clamp(12px, 1.6vw, 18px);
 }
 
 .series-card {
-  grid-column: span 12;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(12px, 1.6vw, 18px);
+  break-inside: avoid;
   border: 1px solid var(--line);
   background: var(--white);
 }
@@ -332,8 +334,7 @@ main {
 
 .series-cover {
   width: 100%;
-  height: clamp(180px, 21vw, 300px);
-  object-fit: cover;
+  height: auto;
 }
 
 .series-body {
@@ -414,39 +415,37 @@ main {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(10px, 1.6vw, 16px);
+  column-width: clamp(210px, 24vw, 320px);
+  column-gap: clamp(10px, 1.6vw, 16px);
 }
 
 .gallery-item {
-  grid-column: span 12;
-  display: flex;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(10px, 1.6vw, 16px);
+  break-inside: avoid;
   border: 1px solid var(--line);
   background: var(--white);
 }
 
 .gallery-item figure {
   margin: 0;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
 }
 
 .gallery-media {
   width: 100%;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  background: #f3f3f3;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
 }
 
 .gallery-media.video-frame {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
 }
 
 figcaption {
-  margin-top: auto;
+  margin-top: 0;
   padding: 9px 11px;
   border-top: 1px solid var(--line);
   color: var(--muted);
@@ -459,10 +458,10 @@ figcaption {
 .site-footer {
   margin-top: auto;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 14px;
   border-top: 1px solid var(--line);
   padding: 12px clamp(14px, 2.4vw, 28px) 16px;
   color: var(--muted);
@@ -500,16 +499,6 @@ figcaption {
   transform: translateY(0);
 }
 
-@media (min-width: 760px) {
-  .series-card {
-    grid-column: span 6;
-  }
-
-  .gallery-item {
-    grid-column: span 6;
-  }
-}
-
 @media (min-width: 1080px) {
   .subpage-intro {
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -527,16 +516,6 @@ figcaption {
     grid-column: 7 / span 6;
     grid-row: 1;
     align-self: start;
-  }
-}
-
-@media (min-width: 1200px) {
-  .series-card {
-    grid-column: span 4;
-  }
-
-  .gallery-item {
-    grid-column: span 4;
   }
 }
 
