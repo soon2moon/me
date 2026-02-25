@@ -66,15 +66,6 @@
       { href: "#expo-aachen-2025", label: "Aachen 2025" },
       { href: "#expo-graphic-design", label: "Poster & Ticket" },
     ],
-    impressum: [{ href: "#impressum-details", label: "Details" }],
-    datenschutz: [
-      { href: "#verantwortliche-stelle", label: "§ Verantwortliche Stelle" },
-      { href: "#hosting-github-pages", label: "§ Hosting" },
-      { href: "#cookies-tracking-analytics", label: "§ Cookies / Tracking" },
-      { href: "#kontaktaufnahme-e-mail", label: "§ Kontaktaufnahme" },
-      { href: "#deine-rechte", label: "§ Rechte" },
-      { href: "#aktualitaet", label: "§ Aktualität" },
-    ],
   };
   const seriesCodes = {
     "body-archive": "BAR",
