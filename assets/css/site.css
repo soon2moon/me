@@ -555,6 +555,8 @@ main {
   margin-top: clamp(36px, 4.8vw, 56px);
   border-top: none;
   padding-top: 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1200px;
 }
 
 .resource-section-header {

@@ -128,7 +128,7 @@
 
   function portfolioImagePath(index) {
     const prefix = portfolioPrefix(index);
-    return assetPath(`images/expo/deviations_portfolio_2024_2025/${prefix}_${pad2(index)}.png`);
+    return assetPath(`images/expo/deviations_portfolio_2024_2025/${prefix}_${pad2(index)}.jpg`);
   }
 
   function imageItem(src, caption, alt, note, layout) {
@@ -142,7 +142,7 @@
     };
   }
 
-  function videoItem(src, caption, alt, note, layout) {
+  function videoItem(src, caption, alt, note, layout, poster) {
     return {
       type: "video",
       src,
@@ -150,6 +150,7 @@
       alt: alt || caption,
       note: note || "",
       layout: layout || "",
+      poster: poster || "",
     };
   }
 
@@ -158,7 +159,7 @@
   }
 
   function portfolioIndexFromItem(item) {
-    const match = item.src.match(/_(\d{2})\.png$/);
+    const match = item.src.match(/_(\d{2})\.(?:png|jpg)$/);
     return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
   }
 
@@ -166,40 +167,45 @@
     return [...items].sort((a, b) => portfolioIndexFromItem(a) - portfolioIndexFromItem(b));
   }
 
-  function applyFirstFramePoster(video) {
-    const setPosterFromCurrentFrame = () => {
-      if (!video.videoWidth || !video.videoHeight) {
-        return;
-      }
+  const deferredMediaObserver =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+              const media = entry.target;
+              const source = media.dataset.src;
+              if (!source) {
+                observer.unobserve(media);
+                return;
+              }
+              media.src = source;
+              media.removeAttribute("data-src");
+              if (media.tagName === "VIDEO") {
+                media.load();
+              }
+              observer.unobserve(media);
+            });
+          },
+          { rootMargin: "420px 0px" }
+        )
+      : null;
 
-      try {
-        const canvas = document.createElement("canvas");
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext("2d");
-        if (!context) {
-          return;
-        }
-
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        video.poster = canvas.toDataURL("image/jpeg", 0.86);
-      } catch (_error) {
-        // Ignore poster generation failures and keep native video fallback.
-      }
-    };
-
-    if (video.readyState >= 2) {
-      setPosterFromCurrentFrame();
+  function deferMediaSource(media, src) {
+    if (!src) {
       return;
     }
-
-    video.addEventListener(
-      "loadeddata",
-      () => {
-        setPosterFromCurrentFrame();
-      },
-      { once: true }
-    );
+    if (!deferredMediaObserver) {
+      media.src = src;
+      if (media.tagName === "VIDEO") {
+        media.load();
+      }
+      return;
+    }
+    media.dataset.src = src;
+    deferredMediaObserver.observe(media);
   }
 
   function createGalleryArticle(item, extraClass = "") {
@@ -219,17 +225,21 @@
       media = document.createElement("video");
       media.className = "gallery-media video-frame";
       media.controls = true;
-      media.preload = "auto";
+      media.preload = "none";
       media.playsInline = true;
       media.setAttribute("aria-label", item.alt);
-      applyFirstFramePoster(media);
-      media.src = item.src;
+      if (item.poster) {
+        media.poster = item.poster;
+      }
+      deferMediaSource(media, item.src);
     } else {
       media = document.createElement("img");
       media.className = "gallery-media";
-      media.src = item.src;
       media.loading = "lazy";
+      media.decoding = "async";
+      media.fetchPriority = "low";
       media.alt = item.alt;
+      deferMediaSource(media, item.src);
     }
     figure.appendChild(media);
 
@@ -284,6 +294,47 @@
     });
 
     container.replaceChildren(fragment);
+    container.dataset.galleryRendered = "true";
+  }
+
+  const galleryRenderObserver =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+              const container = entry.target;
+              const name = container.dataset.gallery;
+              const items = galleryRenderQueue.get(name);
+              if (items) {
+                renderGallery(name, items);
+                galleryRenderQueue.delete(name);
+              }
+              observer.unobserve(container);
+            });
+          },
+          { rootMargin: "700px 0px" }
+        )
+      : null;
+
+  const galleryRenderQueue = new Map();
+
+  function scheduleGalleryRender(name, items) {
+    const container = document.querySelector(`[data-gallery="${name}"]`);
+    if (!container || !items.length) {
+      return;
+    }
+    if (!galleryRenderObserver) {
+      renderGallery(name, items);
+      return;
+    }
+    if (container.dataset.galleryRendered === "true") {
+      return;
+    }
+    galleryRenderQueue.set(name, items);
+    galleryRenderObserver.observe(container);
   }
 
   function renderIndexResources() {
@@ -294,37 +345,79 @@
     const bodyArchiveVideos = [
       videoItem(
         assetPath("videos/body_archive/amygdala_type_in_motion_high_road.mov"),
-        "Amygdala Type in Motion (High Road)"
+        "Amygdala Type in Motion (High Road)",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_storyboards/amygdala_storyboard_02.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/body_archive_film_low_road.mov"),
-        "Body as Archive Film (Low Road)"
+        "Body as Archive Film (Low Road)",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_low_road_stills/amygdala_low_road_still_01.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/werkschau_body_archive_film_main.mov"),
-        "Werkschau Body as Archive Film (Main)"
+        "Werkschau Body as Archive Film (Main)",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/gallery/body_archive_still_02.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/werkschau_body_archive_film_01.mov"),
-        "Werkschau Body as Archive Film 01"
+        "Werkschau Body as Archive Film 01",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/gallery/body_archive_still_01.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/werkschau_body_archive_film_02.mov"),
-        "Werkschau Body as Archive Film 02"
+        "Werkschau Body as Archive Film 02",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/gallery/body_archive_still_03.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/werkschau_type_in_motion_amygdala_01.mov"),
-        "Werkschau Type in Motion Amygdala 01"
+        "Werkschau Type in Motion Amygdala 01",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_storyboards/amygdala_storyboard_10.jpg")
       ),
       videoItem(
         assetPath("videos/body_archive/werkschau_type_in_motion_amygdala_02.mov"),
-        "Werkschau Type in Motion Amygdala 02"
+        "Werkschau Type in Motion Amygdala 02",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_storyboards/amygdala_storyboard_12.jpg")
       ),
     ];
 
     const expoVideoAddendum = [
-      videoItem(assetPath("videos/expo/archive_anomaly.mov"), "Archive Anomaly"),
-      videoItem(assetPath("videos/expo/end_credits_shapes_2.mov"), "End Credits Shapes 2"),
+      videoItem(
+        assetPath("videos/expo/archive_anomaly.mov"),
+        "Archive Anomaly",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_low_road_stills/amygdala_low_road_still_11.jpg")
+      ),
+      videoItem(
+        assetPath("videos/expo/end_credits_shapes_2.mov"),
+        "End Credits Shapes 2",
+        "",
+        "",
+        "",
+        assetPath("images/body_archive/amygdala_storyboards/amygdala_storyboard_05.jpg")
+      ),
     ];
     bodyArchiveVideos.push(...expoVideoAddendum);
 
@@ -548,7 +641,7 @@
     };
 
     Object.entries(galleries).forEach(([name, items]) => {
-      renderGallery(name, items);
+      scheduleGalleryRender(name, items);
     });
   }
 
