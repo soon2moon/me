@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
   </head>
   <body>
     <div class="site-shell">
@@ -25,145 +25,201 @@
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
           </div>
           <nav class="site-nav" aria-label="Primary" id="site-nav">
-            <a href="index.html" data-page-link>Work Archive</a>
-            <a href="process.html" data-page-link>Body Archive</a>
-            <a href="dance.html" data-page-link>Body Alphabet</a>
-            <a href="expo.html" data-page-link>Expo</a>
-            <a href="tanztruppe.html" data-page-link>Performance</a>
-            <a href="experimental-typo.html" data-page-link>Type Studies</a>
-            <a href="contacts.html" data-page-link>Contacts</a>
+            <a href="index.html" data-page-link>MEY AMISA ARCHIVE</a>
+            <a href="pages/body-archive.html" data-page-link>Body Archive</a>
+            <a href="pages/body-alphabet.html" data-page-link>Body Alphabet</a>
+            <a href="pages/exhibition.html" data-page-link>Expo</a>
+            <a href="pages/performance.html" data-page-link>Performance</a>
+            <a href="pages/type-studies.html" data-page-link>Type Studies</a>
+            <a href="pages/contact.html" data-page-link>Contacts</a>
+            <a class="mobile-only-nav-link mobile-legal-first" href="pages/impressum.html" data-page-link>Impressum</a>
+            <a class="mobile-only-nav-link" href="pages/datenschutz.html" data-page-link>Datenschutz</a>
           </nav>
+          <nav class="site-subnav site-subnav--reserved" aria-label="Section navigation" data-page-subnav></nav>
         </header>
 
         <main>
-          <section class="landing-canvas reveal" aria-label="Landing canvas">
-            <div class="canvas-title">
-              <p class="eyebrow">Mey Amisa</p>
-              <h1>Work Archive</h1>
-              <p>
-                White-room presentation of grouped series with direct access to each work and
-                process artifact.
-              </p>
-              <div class="canvas-actions">
-                <a class="mono-button" href="process.html">Open Body Archive</a>
-                <a class="mono-link" href="#series-index">All Series</a>
-              </div>
-            </div>
-            <div class="canvas-artworks">
-              <img
-                class="floating-shot shot-a"
-                src="assets/images/dance_12.jpg"
-                alt="Dance detail from archive"
-                loading="lazy"
-              />
-              <img
-                class="floating-shot shot-b"
-                src="assets/images/expo_06.jpg"
-                alt="Expo detail from archive"
-                loading="lazy"
-              />
-              <img
-                class="floating-shot shot-c"
-                src="assets/images/tanztruppe_05.jpg"
-                alt="Tanztruppe detail from archive"
-                loading="lazy"
-              />
-              <img
-                class="floating-shot shot-d"
-                src="assets/images/experimental_typo_01.jpg"
-                alt="Experimental typography detail"
-                loading="lazy"
-              />
-              <img
-                class="floating-shot shot-e"
-                src="assets/images/dance_03.jpg"
-                alt="Dance architecture detail"
-                loading="lazy"
-              />
-              <img
-                class="floating-shot shot-f"
-                src="assets/images/the_art_of_writing_02.jpg"
-                alt="Type studies detail from archive"
-                loading="lazy"
-              />
-            </div>
+          <section class="site-card-row" aria-label="Site navigation cards">
+            <article class="site-jump-card">
+              <a class="site-jump-link" href="pages/body-archive.html">
+                <figure class="site-jump-media-wrap">
+                  <img
+                    class="site-jump-media"
+                    src="assets/images/body_archive/gallery/body_archive_still_01.jpg"
+                    alt="Body Archive preview"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="site-jump-body">
+                  <h2>Body Archive</h2>
+                </div>
+              </a>
+            </article>
+
+            <article class="site-jump-card">
+              <a class="site-jump-link" href="pages/body-alphabet.html">
+                <figure class="site-jump-media-wrap">
+                  <img
+                    class="site-jump-media"
+                    src="assets/images/body_alphabet/gallery/body_alphabet_still_09.jpg"
+                    alt="Body Alphabet preview"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="site-jump-body">
+                  <h2>Body Alphabet</h2>
+                </div>
+              </a>
+            </article>
+
+            <article class="site-jump-card">
+              <a class="site-jump-link" href="pages/exhibition.html">
+                <figure class="site-jump-media-wrap">
+                  <img
+                    class="site-jump-media"
+                    src="assets/images/expo/deviations_portfolio_2024_2025/studio_kan_kyoto_2024_13.png"
+                    alt="Expo preview"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="site-jump-body">
+                  <h2>Expo</h2>
+                </div>
+              </a>
+            </article>
+
+            <article class="site-jump-card">
+              <a class="site-jump-link" href="pages/performance.html">
+                <figure class="site-jump-media-wrap">
+                  <img
+                    class="site-jump-media"
+                    src="assets/images/performance/gallery/performance_still_05.jpg"
+                    alt="Performance preview"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="site-jump-body">
+                  <h2>Performance</h2>
+                </div>
+              </a>
+            </article>
+
+            <article class="site-jump-card">
+              <a class="site-jump-link" href="pages/type-studies.html">
+                <figure class="site-jump-media-wrap">
+                  <img
+                    class="site-jump-media"
+                    src="assets/images/type_studies/gallery/type_studies_still_01.jpg"
+                    alt="Type Studies preview"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="site-jump-body">
+                  <h2>Type Studies</h2>
+                </div>
+              </a>
+            </article>
           </section>
 
-          <section id="series-index" class="series-grid" aria-label="Series index">
-            <article class="series-card reveal">
-              <a class="series-link" href="process.html">
-                <img
-                  class="series-cover"
-                  src="assets/images/20260219_artwork.jpeg"
-                  alt="Body Archive cover accession ACC. MA-BAR-IMG-002"
-                  loading="lazy"
-                />
-                <div class="series-body">
-                  <h2>Body Archive</h2>
-                  <p>Boards, artwork stills, and the motion study clip.</p>
-                </div>
-              </a>
-            </article>
+          <section id="resource-updates" class="resource-updates" data-index-resource-root>
+            <header class="resource-intro">
+              <p class="eyebrow">2024 - 2025 Additions</p>
+              <h2>Body Archive und Expo Ressourcen</h2>
+              <p>
+                Ergänzte Materialien aus dem neuen Ressourcenpaket, gruppiert nach inhaltlichem Zusammenhang.
+                Die bestehende Seitenstruktur bleibt gleich, die neuen Inhalte sind hier als Zusatzarchiv eingebunden.
+              </p>
+            </header>
 
-            <article class="series-card reveal">
-              <a class="series-link" href="dance.html">
-                <img
-                  class="series-cover"
-                  src="assets/images/dance_08.jpg"
-                  alt="Dance series cover"
-                  loading="lazy"
-                />
-                <div class="series-body">
-                  <h2>Body Alphabet</h2>
-                  <p>Movement frames and stage moments across the dance set.</p>
-                </div>
-              </a>
-            </article>
+            <section id="body-archive-resources" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">Body Archive</p>
+                <h3>Motion, Storyboards und Stills</h3>
+                <p>
+                  Vollständige Ergänzung aus High Road / Low Road Material inklusive Werkschau-Versionen und
+                  Produktions-Storyboards.
+                </p>
+              </header>
 
-            <article class="series-card reveal">
-              <a class="series-link" href="expo.html">
-                <img
-                  class="series-cover"
-                  src="assets/images/experimental_typo_03.jpg"
-                  alt="Expo cover accession ACC. MA-XTP-IMG-004"
-                  loading="lazy"
-                />
-                <div class="series-body">
-                  <h2>Expo</h2>
-                  <p>Exhibition documentation and installation perspectives.</p>
-                </div>
-              </a>
-            </article>
+              <div class="resource-group">
+                <h4>Filme und Motion Studies</h4>
+                <div class="gallery-grid" data-gallery="body-archive-videos"></div>
+              </div>
 
-            <article class="series-card reveal">
-              <a class="series-link" href="tanztruppe.html">
-                <img
-                  class="series-cover"
-                  src="assets/images/tanztruppe_08.jpg"
-                  alt="Performance cover accession ACC. MA-PRF-IMG-005"
-                  loading="lazy"
-                />
-                <div class="series-body">
-                  <h2>Performance</h2>
-                  <p>Group choreography and rehearsal observations.</p>
-                </div>
-              </a>
-            </article>
+              <div class="resource-group">
+                <h4>STORYBOARD END CREDIT SCENE</h4>
+                <div class="gallery-grid" data-gallery="body-archive-storyboards"></div>
+              </div>
 
-            <article class="series-card reveal">
-              <a class="series-link" href="experimental-typo.html">
-                <img
-                  class="series-cover"
-                  src="assets/images/experimental_typo_00.jpg"
-                  alt="Type Studies cover accession ACC. MA-XTP-IMG-001"
-                  loading="lazy"
-                />
-                <div class="series-body">
-                  <h2>Type Studies</h2>
-                  <p>Typographic experiments and merged writing-fragment works.</p>
-                </div>
-              </a>
-            </article>
+              <div class="resource-group">
+                <h4>STORYBOARD LOW ROAD STILL PHOTOS</h4>
+                <div class="gallery-grid" data-gallery="body-archive-stills"></div>
+              </div>
+            </section>
+
+            <section id="expo-overview" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">Expo</p>
+                <h3>Deviation Portfolio 2024 - 2025</h3>
+                <p>
+                  Der gesamte Bildbestand aus dem Expo-Portfolio mit Untersektionen pro Ausstellung und zusätzlicher
+                  Grafikdesign-Dokumentation.
+                </p>
+              </header>
+              <div class="resource-group">
+                <h4>Portfolio Cover Images</h4>
+                <div class="gallery-grid" data-gallery="expo-covers"></div>
+              </div>
+            </section>
+
+            <section id="expo-studio-kan-2024" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">06.12. - 11.12.2024</p>
+                <h3>Deviation Solo Exhibition at Studio Kan, Kyoto</h3>
+              </header>
+              <div class="gallery-grid" data-gallery="expo-studio-all"></div>
+            </section>
+
+            <section id="expo-geoje-seomkot-2025" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">01.11. - 09.11.2025</p>
+                <h3>Deviations Exhibition: Geoje International Seomkot Art Show</h3>
+              </header>
+              <div class="gallery-grid" data-gallery="expo-geoje-all"></div>
+            </section>
+
+            <section id="expo-gyeongnam-2025" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">01.11. - 09.11.2025</p>
+                <h3>The 12th Gyeongnam International Art Fair (represented by Gallery Geoje)</h3>
+              </header>
+              <div class="gallery-grid" data-gallery="expo-gyeongnam-all"></div>
+            </section>
+
+            <section id="expo-aachen-2025" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">06.12.2025</p>
+                <h3>Solo Exhibition: Deviation The Art of Writing, Raststätte Kulturraum Aachen</h3>
+              </header>
+              <div class="gallery-grid" data-gallery="expo-aachen-all"></div>
+            </section>
+
+            <section id="expo-graphic-design" class="resource-section">
+              <header class="resource-section-header">
+                <p class="eyebrow">Deviations Graphic Design</p>
+                <h3>Poster und Ticket Design</h3>
+              </header>
+
+              <div class="resource-group">
+                <h4>Poster and Entrance Card Design</h4>
+                <div class="gallery-grid" data-gallery="expo-graphic-design-ticket"></div>
+              </div>
+
+              <div class="resource-group">
+                <h4>Poster Designs</h4>
+                <div class="gallery-grid" data-gallery="expo-graphic-design-posters"></div>
+              </div>
+            </section>
           </section>
         </main>
 
@@ -172,11 +228,13 @@
           <div class="footer-links">
             <a href="https://www.instagram.com/mey.amisa/" target="_blank" rel="noreferrer">Instagram</a>
             <a href="https://www.behance.net/meyamisa1#" target="_blank" rel="noreferrer">Behance</a>
+            <a class="legal-link" href="pages/impressum.html">Impressum</a>
+            <a class="legal-link" href="pages/datenschutz.html">Datenschutz</a>
           </div>
         </footer>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/js/site.js"></script>
   </body>
 </html>
